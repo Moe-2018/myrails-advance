@@ -39,7 +39,7 @@ gem "dotenv-rails"
 gem "prism", "1.3.0"
 
 # Use Tailwind CSS for styling [https://tailwindcss.com/docs/installation#ruby-on-rails]
-gem "tailwindcss-rails", "~> 3.3.1"
+gem "tailwindcss-rails", "~> 4.4.0"
 
 
 
