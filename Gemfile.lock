@@ -77,12 +77,12 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.20)
-    benchmark (0.4.1)
+    benchmark (0.5.0)
     better_errors (2.10.1)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
-    bigdecimal (3.3.0)
+    bigdecimal (3.3.1)
     bindex (0.8.1)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
@@ -91,7 +91,7 @@ GEM
     brakeman (7.1.0)
       racc
     builder (3.3.0)
-    bullet (8.0.8)
+    bullet (8.1.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     childprocess (5.1.0)
@@ -389,7 +389,7 @@ DEPENDENCIES
   brakeman
   bullet
   debug
-  devise
+  devise (~> 4.9)
   dotenv-rails
   factory_bot_rails
   faker
