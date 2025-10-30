@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[]
 
   # GET /events or /events.json
   def index
@@ -21,8 +21,13 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
-
+  @event = current_user.events.build(event_params)
+  if @event.save
+    redirect_to @event, notice: 'イベントを追加しました。'
+  else
+    render :new
+  end
+end
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: "Event was successfully created." }
@@ -67,4 +72,3 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :description, :date, :holder, :relevant, :team)
     end
-end

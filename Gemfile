@@ -41,6 +41,8 @@ gem "prism", "1.3.0"
 # Use Tailwind CSS for styling [https://tailwindcss.com/docs/installation#ruby-on-rails]
 gem "tailwindcss-rails", "~> 3.3.1"
 
+
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows]
@@ -109,3 +111,5 @@ group :test do
   # RSpec matchers
   gem "shoulda-matchers"
 end
+
+gem "devise", "~>4.9"
