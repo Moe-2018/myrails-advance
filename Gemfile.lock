@@ -77,12 +77,12 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.20)
-    benchmark (0.4.1)
+    benchmark (0.5.0)
     better_errors (2.10.1)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
-    bigdecimal (3.3.0)
+    bigdecimal (3.3.1)
     bindex (0.8.1)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
@@ -324,8 +324,8 @@ GEM
       rbs (>= 3, < 5)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    shoulda-matchers (6.5.0)
-      activesupport (>= 5.2.0)
+    shoulda-matchers (7.0.1)
+      activesupport (>= 7.1)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -389,7 +389,7 @@ DEPENDENCIES
   brakeman
   bullet
   debug
-  devise
+  devise (~> 4.9)
   dotenv-rails
   factory_bot_rails
   faker
