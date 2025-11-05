@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[]
+  before_action :authenticate_user!
+  before_action :set_event, only: %i[show edit update destroy]
+  before_action :authorize_event, only: [:update, :destroy]
+
+
 
   # GET /events or /events.json
   def index
@@ -8,6 +12,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+   authorize @event
   end
 
   # GET /events/new
@@ -17,6 +22,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events or /events.json
@@ -27,7 +33,7 @@ class EventsController < ApplicationController
   else
     render :new
   end
-end
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: "Event was successfully created." }
@@ -54,7 +60,9 @@ end
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    authorize @event
     @event.destroy!
+    
 
     respond_to do |format|
       format.html { redirect_to events_path, notice: "Event was successfully destroyed.", status: :see_other }
@@ -63,6 +71,10 @@ end
   end
 
   private
+
+    def authorize_event
+    authorize @event # Pundit の authorize メソッドを呼ぶ
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
@@ -70,5 +82,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :date, :holder, :relevant, :team)
+      params.require(:event).permit(:title, :description, :date, :holder, :team)
     end
+  end
