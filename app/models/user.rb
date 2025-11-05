@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :events, dependent: :destroy
+  def admin?
+    self.admin == true
+  end
 end
